@@ -3,7 +3,7 @@
     我是user +++++ {{ $route.params }}
     <hr>
       <div class="list">
-        <router-link :to="'/user/'+ item.level +'/'+ item.id" v-for="(item,index) of userList" key="index" tag="a" >{{item.userName}}</router-link>
+        <router-link :to="'/user/'+ item.level +'/'+ item.id" v-for="(item,index) of userList" tag="a" >{{item.userName}}</router-link>
       </div>
       <div style="font-size:20px;line-height:1.5" v-if="userInfo.id">
         <p>姓名: {{userInfo.userName}}</p>
@@ -45,10 +45,16 @@ export default {
         }
     },
     watch:{
-        $route(to, from){
+        '$route' (to, from){
+            //console.log(to, from)
             this.getDate();
             //console.log(to,from)
         }
+    },
+    beforeRouteUpdate (to, from, next) {
+    // react to route changes...
+    // don't forget to call next()
+    console.log(to, from,next)
     },
     created(){
         this.getDate();

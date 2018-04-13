@@ -6,7 +6,7 @@
           <router-link :to="index" exact tag="a" >home</router-link>
         </li>
         <li>
-          <router-link :to="{path: '/about'}" active-class="active">about</router-link>
+          <router-link :to="{path: '/about', query: {test:'test123'} }" active-class="active">about</router-link>
         </li>
         <li>
           <router-link to="/document" >document</router-link>
@@ -38,8 +38,8 @@ export default {
     }
   },
   watch:{
-    $route(to,from){
-      console.log(from.meta)
+    '$route' (to,from){
+      console.log(to,from)
       if(to.meta.index < from.meta.index){
         this.names = 'right';
       }else{

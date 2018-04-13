@@ -15,7 +15,7 @@ function example(){
 
 let {x, y} = example();
 
-console.log(x,y)
+//console.log(x,y)
 
 export default {
     data(){
@@ -23,16 +23,27 @@ export default {
             fdsa:'test'
         }
     },
+    watch: {
+        '$route' (to,from){
+            console.log(to,from,'a')
+        }
+    },
+    mounted (){
+        console.log(this)
+    },
     methods:{
         abc(){
-            console.log(this.$router);
 
-            /*this.$router.push({
+            console.log(this.$router)
+            console.log(this.$route)
+
+            this.$router.push({
                 path: '/about',
                 query: {
                     orderId: this.fdsa
                 }
-            })*/
+            })
+            //this.$router.push('about')
             //console.log('aaa')
         }
     }

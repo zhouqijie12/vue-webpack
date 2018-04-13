@@ -15,7 +15,7 @@
       </ul>
       <input type="text" v-model="message"/>
       <router-view />
-
+      <router-view name="slide"/>
     </div>
 </template>
 
@@ -63,6 +63,9 @@ export default {
           this.message = 'aaaa'
         }
     },
+    mounted () {
+      console.log(this.$route)
+    },
     filters:{
       capitalize: function(value) {
 
@@ -103,7 +106,5 @@ export default {
 </script>
 
 <style>
-    .about{
 
-    }
 </style>
