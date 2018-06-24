@@ -13,6 +13,6 @@ export default {
 
 <style>
     .document{
-        //height:2000px;
+        height:2000px;
     }
 </style>

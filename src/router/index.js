@@ -21,7 +21,7 @@ let router = new VueRouter({
     //to 目标对象
     //from 哪里来
     //savePosition 记录滚动条坐标.
-    //console.log(to,from,savePosition)
+    console.log(to,from,savePosition)
     /*if(to.hash){
         return {
             selector: to.hash

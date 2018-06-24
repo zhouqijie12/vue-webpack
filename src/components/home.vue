@@ -1,5 +1,10 @@
 <template>
-  <div class="home" @click="abc">我是首页 home{{$route.meta.index}} +++++ {{ $route.params.id }}</div>
+  <div class="home" @click="abc">我是首页 home{{$route.meta.index}} +++++ {{ $route.params.id }}
+  <ul>
+    <li v-for="item in datalist">{{item.name}}</li>
+    </ul>
+  </div>
+
 </template>
 
 <script>
@@ -15,6 +20,7 @@ function example(){
 
 let {x, y} = example();
 
+
 //console.log(x,y)
 
 export default {
@@ -23,10 +29,19 @@ export default {
             fdsa:'test'
         }
     },
+    computed:{
+        datalist(){
+            return this.$store.state.listStore.list;
+        }
+    },
     watch: {
         '$route' (to,from){
             console.log(to,from,'a')
         }
+    },
+    created(){
+        this.$store.dispatch('getList');
+
     },
     mounted (){
         console.log(this)

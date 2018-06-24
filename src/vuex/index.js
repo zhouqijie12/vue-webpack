@@ -1,12 +1,36 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import axios from 'axios';
 
 Vue.use(Vuex);
 
+let listStore = {
+    store:{
+        list: []
+    },
+    mutations:{
+        getli(state,res){
+            state.list = res.list;
+        }
+    },
+    actions:{
+        getList({commit,dispatch}){
+            axios.get('https://easy-mock.com/mock/5b2f4afd0e946a3379e72c66/example/').then((res)=>{
+                console.log(JSON.stringify(res,null,2))
+                let result = res.data.data;
+                commit({
+                    type:'getli',
+                    list: result.list
+                })
+            })
+
+        }
+    }
+}
 let store = new Vuex.Store({
     state: {
-        count: 60
+        count: 60,
+        list: []
     },
     getters:{
         filterCount(state){
@@ -32,6 +56,9 @@ let store = new Vuex.Store({
         test(context, obj){
             console.log(obj)
         }
+    },
+    modules:{
+        listStore
     }
 })
 

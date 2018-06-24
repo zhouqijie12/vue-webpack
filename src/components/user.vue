@@ -51,11 +51,7 @@ export default {
             //console.log(to,from)
         }
     },
-    beforeRouteUpdate (to, from, next) {
-    // react to route changes...
-    // don't forget to call next()
-    console.log(to, from,next)
-    },
+
     created(){
         this.getDate();
     },
