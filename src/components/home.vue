@@ -1,7 +1,7 @@
 <template>
   <div class="home" @click="abc">我是首页 home{{$route.meta.index}} +++++ {{ $route.params.id }}
   <ul>
-    <li v-for="item in datalist">{{item.name}}</li>
+    <li v-for="(item,index) in datalist" :key="index">{{item.name}}</li>
     </ul>
   </div>
 
