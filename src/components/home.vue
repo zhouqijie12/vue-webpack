@@ -3,12 +3,18 @@
   <ul>
     <li v-for="(item,index) in datalist" :key="index">{{item.name}}</li>
     </ul>
+    <span v-for="(item,index) in 3" :key="index" @click.stop="importComponent(index)">动态加载组件{{index}}</span>
+    <keep-alive>
+        <component :is="showComponent"></component>
+    </keep-alive>
   </div>
 
 </template>
 
 <script>
-
+import A from '@/components/a'
+import B from '@/components/b'
+import C from '@/components/c'
 //模式 foo, 变量 baz
 
 function example(){
@@ -26,13 +32,19 @@ let {x, y} = example();
 export default {
     data(){
         return{
-            fdsa:'test'
+            fdsa:'test',
+            showComponent: A
         }
     },
     computed:{
         datalist(){
             return this.$store.state.listStore.list;
         }
+    },
+    components: {
+        A,
+        B,
+        C
     },
     watch: {
         '$route' (to,from){
@@ -47,6 +59,16 @@ export default {
         console.log(this)
     },
     methods:{
+        importComponent(index){
+            console.log(index)
+            if (index === 0){
+                this.showComponent = A;
+            } else if (index ==1){
+                this.showComponent = B;
+            } else if (index === 2){
+                this.showComponent = C;
+            }
+        },
         abc(){
 
             console.log(this.$router)

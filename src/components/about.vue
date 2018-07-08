@@ -14,6 +14,7 @@
         </li>
       </ul>
       <input type="text" v-model="message"/>
+      <v-distpicker province="广东省" city="广州市" area="海珠区"></v-distpicker>
       <router-view />
       <router-view name="slide"/>
     </div>
