@@ -17,6 +17,9 @@
         <li>
           <router-link to="/vuex" >vuex</router-link>
         </li>
+        <li>
+          <router-link to="/elementui" >elementui</router-link>
+        </li>
       </ul>
     </div>
     <img src="./assets/logo.png" />

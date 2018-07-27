@@ -7,6 +7,7 @@ import documenta from '@/components/document'
 import nofound from '@/components/error'
 import user from '@/components/user'
 import vuex from '@/components/vuex'
+import elementui from '@/components/elementui'
 import study from '@/components/views/study'
 import work from '@/components/views/work'
 import speak from '@/components/views/speak'
@@ -103,6 +104,14 @@ let router = new VueRouter({
             component: vuex,
             meta:{
                 index:4
+            }
+        },
+        {
+            path: '/elementui',
+            name: 'elementui',
+            component: elementui,
+            meta: {
+                index: 5
             }
         },
         {

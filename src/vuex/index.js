@@ -5,7 +5,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 let listStore = {
-    store: {
+    state: {
         list: []
     },
     mutations: {

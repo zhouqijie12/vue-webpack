@@ -5,9 +5,12 @@ import router from '@/router'
 import store from './vuex/index'
 import VueAreaLinkage from 'vue-area-linkage'
 
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 import '@/assets/css/app.css'
 
-import * as constants from './assets/js/constants';
+import * as constants from './assets/js/constants'
 import {db, user} from './assets/js/constants/index'
 
 console.log(db.admin_username)
@@ -19,15 +22,14 @@ console.log(db.admin_username)
     el.focus()
   }
 })*/
-
-
-Vue.use(VueAreaLinkage);
+Vue.use(VueAreaLinkage)
+Vue.use(ElementUI)
 
 new Vue({
-    el:"#app",
-    router,
-    store,
-    template:'<App />',
-    components:{App}
+  el:"#app",
+  router,
+  store,
+  template:'<App />',
+  components:{App}
 })
 
