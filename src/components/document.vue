@@ -46,7 +46,7 @@ export default {
 
         for (var j=0; j<city_list.length; j++){
             for (var k=0; k<county_list.length; k++){
-                if (city_list[j].value.substring(0,2) === county_list[k].value.substring(0,2)){
+                if (city_list[j].value.substring(0,4) === county_list[k].value.substring(0,4)){
                     city_list[j].children.push(county_list[k])
                 }
             }
@@ -58,7 +58,7 @@ export default {
                 }
             }
         }
-        console.log(JSON.stringify(province_list,null,2))
+        console.log(JSON.stringify(city_list,null,2))
     }
 }
 </script>
