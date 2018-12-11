@@ -38,7 +38,7 @@ export default {
     beforeCreate(){
       console.log('beforeCreate')
     },
-    create(){
+    created(){
       console.log('create')
     },
     beforeMounted(){

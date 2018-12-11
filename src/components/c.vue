@@ -1,5 +1,5 @@
 <template>
-  <div class="c">我 c</div>
+  <div class="c">【动态组件2】</div>
 </template>
 
 <script>

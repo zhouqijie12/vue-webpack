@@ -19,32 +19,35 @@ let router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'is-active',
   scrollBehavior (to, from, savePosition) {
+      console.log(to)
     //to 目标对象
     //from 哪里来
     //savePosition 记录滚动条坐标.
-    console.log(to,from,savePosition)
+    // console.log(to,from,savePosition)
     /*if(to.hash){
         return {
             selector: to.hash
         }
     }
-
-    if(savePosition){
-        return savePosition
-    }else{
-        return {
-            x: 0,
-            y: 0
+*/
+        if(savePosition){
+            return savePosition
+        }else{
+            return {
+                x: 0,
+                y: 0
+            }
         }
-    }*/
     },
     routes:[
         {
             path: '/',
             name: 'home',
-/*            redirect: to => {
-                return '/about'
-            },*/
+            // redirect: to => {
+            //     return '/about'
+            // },
+            // redirect: '/about',
+            // redirect: '{name: About}',
             component: home,
             meta:{
                 index:0
@@ -54,6 +57,7 @@ let router = new VueRouter({
             path: '/about',
 /*            name: 'About',*/
             component: about,
+            alias: '/document',
             children: [
                 {
                     path: '',//默认子路由
@@ -121,8 +125,7 @@ let router = new VueRouter({
             //redirect: {path: '/home'}
             //redirect: { name: 'About'}
             redirect: (to) => {  //动态设置重定向目标
-
-                //console.log(to)
+                console.log(to)
                 if(to.path == '/123'){
                     return '/about'
                 }else{

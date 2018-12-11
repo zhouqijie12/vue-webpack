@@ -51,7 +51,10 @@ export default {
             //console.log(to,from)
         }
     },
-
+    beforeRouteUpdate (to, from, next) {
+        console.log(to, from, 'beforeRouteUpdate')
+        next()
+    },
     created(){
         this.getDate();
     },

@@ -45,8 +45,13 @@ export default {
         }
 
         for (var j=0; j<city_list.length; j++){
+            let o = {}
+            o.label = '全部'
+            o.value = ''
+            city_list[j].children.push(o)
             for (var k=0; k<county_list.length; k++){
                 if (city_list[j].value.substring(0,4) === county_list[k].value.substring(0,4)){
+                    console.log(county_list[k])
                     city_list[j].children.push(county_list[k])
                 }
             }

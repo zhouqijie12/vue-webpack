@@ -3,10 +3,15 @@
   <ul>
     <li v-for="(item,index) in datalist" :key="index">{{item.name}}</li>
     </ul>
-    <span v-for="(item,index) in 3" :key="index" @click.stop="importComponent(index)">动态加载组件{{index}}</span>
+    <span class="component" v-for="(item,index) in 3" :key="index" @click.stop="importComponent(index)">动态加载组件{{index}}</span>
     <keep-alive>
         <component :is="showComponent"></component>
     </keep-alive>
+    <A :books="books">
+        <template slot="aa" slot-scope="{books}">
+            <li>{{books}}</li>
+        </template>
+    </A>
   </div>
 
 </template>
@@ -33,7 +38,13 @@ export default {
     data(){
         return{
             fdsa:'test',
-            showComponent: A
+            showComponent: A,
+            num: 'AAAA',
+            books: [
+                {name: 'vue.js'},
+                {name: 'js高级程序设计'},
+                {name: 'node.js入门实践'}
+            ]
         }
     },
     computed:{
@@ -53,6 +64,8 @@ export default {
     },
     created(){
         this.$store.dispatch('getList');
+        console.log(this.$toUpperCase('rewqreqw'))
+        console.log(this.num + 'aaa')
 
     },
     mounted (){
@@ -89,5 +102,10 @@ export default {
 </script>
 
 <style>
-
+span.component{
+    color: red;
+    display: block;
+    line-height: 40x;
+    margin: 10px 0 0;
+}
 </style>
