@@ -20,6 +20,9 @@
         <li>
           <router-link to="/elementui" >elementui</router-link>
         </li>
+        <li>
+          <router-link to="/iview" >iview</router-link>
+        </li>
       </ul>
     </div>
     <img src="./assets/logo.png" />

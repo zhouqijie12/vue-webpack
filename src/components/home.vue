@@ -31,7 +31,6 @@ function example(){
 
 let {x, y} = example();
 
-
 //console.log(x,y)
 
 export default {
@@ -66,7 +65,6 @@ export default {
         this.$store.dispatch('getList');
         console.log(this.$toUpperCase('rewqreqw'))
         console.log(this.num + 'aaa')
-
     },
     mounted (){
         console.log(this)
@@ -83,10 +81,8 @@ export default {
             }
         },
         abc(){
-
-            console.log(this.$router)
-            console.log(this.$route)
-
+            // console.log(this.$router)
+            // console.log(this.$route)
             this.$router.push({
                 path: '/about',
                 query: {
