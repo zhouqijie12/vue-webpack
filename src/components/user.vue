@@ -1,5 +1,7 @@
 <template>
   <div class="user">
+    {{value}}
+    <el-cascader v-model="value" :props="props"></el-cascader>
     我是user +++++ {{ $route.params }}
     <hr>
       <div class="list">
@@ -37,44 +39,81 @@ let data = [
         job: 'coder3'
     }
 ]
+let id = 1;
 export default {
     data(){
         return {
+            value: [2],
+            nodess: [],
             userList: data,
-            userInfo: {}
+            userInfo: {},
+            props: {
+                lazy: true,
+                lazyLoad (node, resolve) {
+                    const { level } = node;
+                    setTimeout(() => {
+                        let nodes = Array.from({ length: level + 1 })
+                            .map(item => ({
+                                value: ++id,
+                                label: `选项${id}`,
+                                leaf: level >= 1
+                            }));
+                        // 通过调用resolve将子节点数据返回，通知组件数据加载完成
+                        let nodess = [
+                            {
+                                label: "aaaaa",
+                                leaf: true,
+                                value: 2,
+                            }
+                        ]
+                        resolve(nodess);
+                        console.log(nodes, 'sssssss')
+                    }, 1000);
+                }
+            }
+            
         }
+    },
+    props:['ts'],
+    mounted () {
+        
     },
     watch:{
         '$route' (to, from){
-            //console.log(to, from)
             this.getDate();
+
             //console.log(to,from)
         }
     },
     beforeRouteUpdate (to, from, next) {
-        console.log(to, from, 'beforeRouteUpdate')
+        // console.log('to:',to, 'from:',from, 'beforeRouteUpdate')
         next()
     },
     created(){
         this.getDate();
+        this.nodess = [
+            {
+                label: "aaaaa",
+                leaf: true,
+                value: 2,
+            }
+        ]
     },
     methods:{
         getDate(){
+            console.log(this.ts,'ts')
             let id = this.$route.params.userId;
-
+            console.log(this.$route, '9090909')
             if(id){
                 this.userInfo = this.userList.filter( (item) => {
                     return item.id == id;
                 })[0]
-
             }else{
                 this.userInfo = {};
-
             }
         }
     }
 }
-
 </script>
 
 <style>

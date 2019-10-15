@@ -6,13 +6,14 @@ export default {
       return val.toUpperCase()
     }
     Vue.prototype.num = 10
+    Vue.prototype.$eventBus = new Vue()
     Vue.mixin({
       created () {
-        console.log('组件开始加载')
+        // console.log('组件开始加载')
       },
       methods: {
         abc () {
-          alert('fdasfads')
+          // alert('fdasfads')
         }
       }
     })

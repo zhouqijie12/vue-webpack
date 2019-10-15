@@ -2,10 +2,11 @@
   <div class="vuex">
     我是add
     <hr/>
+    <p>state:{{cs0}}-{{cs1}}-{{cs2}}</p>
     <input type="button" value="-" @click="reduce({b:10})"/>
-    <span>{{num}}</span>
-    <input type="button" value="+" @click="add"/>
-    <p>{{num2}}</p>
+    <input type="button" value="+" @click="add({n:5})"/>
+    <input type="button" value="+" @click="addaSync({n: 1})"/>
+    <p>getters:{{num2}}-{{num3}}--{{filterCount}}--{{test}}</p>
   </div>
 </template>
 
@@ -19,15 +20,22 @@ export default {
         }
     },
     computed:{
-        num(){
-            return this.$store.state.count
+        cs0(){
+            return this.$store.state.buyStore.count
         },
-        ...mapGetters({
-            num2: 'filterCount'
+        ...mapState({
+            cs1: state => state.buyStore.count
+        }),
+        ...mapState('buyStore', {
+            cs2: state => state.count
         }),
         num3(){
-            return this.$store.getters.filterCount
-        }
+            return this.$store.getters['buyStore/filterCount']
+        },
+        ...mapGetters('buyStore', {
+            num2: 'filterCount'
+        }),
+        ...mapGetters('buyStore', ['filterCount', 'test'])
     },
     created(){
 
@@ -48,11 +56,20 @@ export default {
             //触发一个异步操作
             this.$store.dispatch('addAction');
         }*/
-        ...mapMutations({
+        // ...mapMutations({
+        //     add: 'buyStore/add',
+        //     reduce: 'buyStore/reduce'
+        // }),
+        ...mapMutations('buyStore', {
+            add: 'add',
             reduce: 'reduce'
         }),
-        ...mapActions({
-            add: 'addAction'
+        ...mapMutations('buyStore', ['add', 'reduce']),
+        // ...mapActions({
+        //     addaSync: 'buyStore/addAction'
+        // }),
+        ...mapActions('buyStore', {
+            addaSync: 'addAction'
         })
     }
 }

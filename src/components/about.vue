@@ -1,7 +1,10 @@
 <template>
   <div class="about">
-    <div @click="abc()">我是about me {{$route.meta.index}}</div>
+    <div @click="abcx()" :class="['abc', {test: ts}]">我是about me {{$route.meta.index}}</div>
     <hr>
+    <p v-clipboard:copy="sysAppIds"
+        v-clipboard:success="onCopy"
+        v-clipboard:error="onError">fdsafdsa</p>
     <ul>
         <li>
           <router-link to="/about" tag="a" exact>work</router-link>
@@ -13,9 +16,16 @@
           <router-link to="/about/speak" tag="a">speak</router-link>
         </li>
       </ul>
-      <input type="text" v-model="message"/>
-      <v-distpicker province="广东省" city="广州市" area="海珠区"></v-distpicker>
+      <!-- <input type="text" v-model="message"/> -->
+      <br/>
+      <br/>
+      <br/>
+      <!-- <v-distpicker province="广东省" city="广州市" area="海珠区"></v-distpicker> -->
+      <br/>
+      <br/>
+      <br/>
       <router-view />
+      <br/>
       <router-view name="slide"/>
     </div>
 </template>
@@ -27,9 +37,12 @@ import VDistpicker from 'v-distpicker';
 export default {
     data(){
         return{
+          sysAppIds: 'xxxxxxxxxxxsx12321',
           message:'afda',
           selected: [],
-          selected2: []
+          selected2: [],
+          ts: true,
+          abc: 'xxx'
         }
     },
     components:{
@@ -60,9 +73,16 @@ export default {
       console.log('destroyed')
     },
     methods:{
-        abc(){
+        abcx(){
           this.message = 'aaaa'
-        }
+        },
+        onCopy(e){
+          console.log(e);
+        },
+        // 复制失败
+        onError(e){
+          alert("失败");
+        },
     },
     mounted () {
       console.log(this.$router)
@@ -107,6 +127,3 @@ export default {
 }
 </script>
 
-<style>
-
-</style>

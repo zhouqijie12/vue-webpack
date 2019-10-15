@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import home from '@/components/home'
-import about from '@/components/about'
+// import about from '@/components/about'
 import documenta from '@/components/document'
 import nofound from '@/components/error'
 import user from '@/components/user'
@@ -20,7 +20,7 @@ let router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'is-active',
   scrollBehavior (to, from, savePosition) {
-    //   console.log(to)
+    console.log(to, 'scrollBehavior', savePosition)
     // to 目标对象
     // from 哪里来
     // savePosition 记录滚动条坐标.
@@ -64,9 +64,9 @@ let router = new VueRouter({
     },
     {
       path: '/about',
-      // name: 'About',
-      component: about,
+      // name: 'about',
       alias: '/document',
+      component: () => import(/* webpackChunkName: "about" */'@/components/about'),
       children: [
         {
           path: '', // 默认子路由
@@ -103,6 +103,11 @@ let router = new VueRouter({
       path: '/user/:level?/:userId*',
       name: 'user',
       component: user,
+      props: () => {
+        return {
+          ts: 'ts4'
+        }
+      },
       beforeRouteUpdate (to, from, next) {
         console.log(to, from, next)
       },
@@ -133,7 +138,7 @@ let router = new VueRouter({
       // redirect: {path: '/home'}
       // redirect: { name: 'About'}
       redirect: (to) => {  // 动态设置重定向目标
-        console.log(to)
+        console.log(to, '90909')
         if (to.path === '/123') {
           return '/about'
         } else {

@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-
 Vue.use(Vuex)
 
 let listStore = {
+  namespaced: true,
   state: {
+    cs: 900,
     list: []
   },
   mutations: {
@@ -21,20 +22,25 @@ let listStore = {
         console.log(JSON.stringify(list, null, 2))
         commit({
           type: 'getli',
-          list: list
+          list
         })
       })
     }
   }
 }
-let store = new Vuex.Store({
+
+let buyStore = {
+  namespaced: true,
   state: {
     count: 60,
     list: []
   },
   getters: {
-    filterCount (state) {
-      return state.count >= 120 ? 120 : state.count
+    filterCount (state, getters, rootState) {
+      return state.count >= 120 ? 120 : rootState.leon
+    },
+    test (state) {
+      return state.count - 10
     }
   },
   mutations: {
@@ -47,18 +53,24 @@ let store = new Vuex.Store({
     }
   },
   actions: {
-    addAction ({ commit, dispatch }) {
+    addAction ({ commit, dispatch }, payload) {
       setTimeout(() => {
-        commit('add', { n: 5 })
+        commit('add', payload)
         dispatch('test', { a: 'test' })
       }, 1000)
     },
     test (context, obj) {
       console.log(obj)
     }
+  }
+}
+let store = new Vuex.Store({
+  state: {
+    leon: 14
   },
   modules: {
-    listStore
+    listStore,
+    buyStore
   }
 })
 
