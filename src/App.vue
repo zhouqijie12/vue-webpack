@@ -6,7 +6,11 @@
           <router-link :to="index" exact tag="a">home</router-link>
         </li>
         <li>
-          <router-link :to="{path: '/about', query: {test:'test123'} }" active-class="active">about</router-link>
+          <router-link
+            :to="{ path: '/about', query: { test: 'test123' } }"
+            active-class="active"
+            >about</router-link
+          >
         </li>
         <li>
           <router-link to="/document">document</router-link>
@@ -25,7 +29,7 @@
         </li>
       </ul>
     </div>
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.png" />
 
     <transition :name="names">
       <router-view class="centera"></router-view>

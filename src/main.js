@@ -12,14 +12,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/app.css'
 
 import * as constants from './assets/js/constants'
-import {db, user} from './assets/js/constants/index'
+import { db, user } from './assets/js/constants/index'
 
 import iView from 'iview'
 import VueDraggableResizable from 'vue-draggable-resizable'
 
 import VueClipboard from 'vue-clipboard2'
-
-
 
 // optionally import default styles
 import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
@@ -44,9 +42,9 @@ Vue.use(VueClipboard)
 Vue.use(plugins, 'a', 'b')
 
 new Vue({
-  el: "#app",
-  router,
-  store,
-  template: '<App />',
-  components: {App}
+    el: '#app',
+    router,
+    store,
+    template: '<App />',
+    components: { App }
 })
