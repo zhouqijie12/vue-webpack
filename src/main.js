@@ -6,8 +6,8 @@ import store from './vuex/index'
 import VueAreaLinkage from 'vue-area-linkage'
 import plugins from '@/router/plugins'
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 import '@/assets/css/app.css'
 
