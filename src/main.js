@@ -1,25 +1,17 @@
 import Vue from 'vue'
-
 import App from './App'
 import router from '@/router'
 import store from './vuex/index'
 import VueAreaLinkage from 'vue-area-linkage'
 import plugins from '@/router/plugins'
-
 import speak from '@/components/views/speak';
 import Im from 'imzqj';
-
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
 import '@/assets/css/app.css'
-
-import * as constants from './assets/js/constants'
-import { db, user } from './assets/js/constants/index'
-
+import { db } from './assets/js/constants/index'
 import iView from 'iview'
 import VueDraggableResizable from 'vue-draggable-resizable'
-
 import VueClipboard from 'vue-clipboard2'
 import { registerMicroApps, start } from 'qiankun';
 
