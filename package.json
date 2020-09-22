@@ -14,6 +14,7 @@
     "axios": "^0.18.0",
     "element-ui": "^2.10.1",
     "iview": "^3.2.2",
+    "qiankun": "^2.0.25",
     "v-distpicker": "^1.0.14",
     "vue": "^2.5.2",
     "vue-area-linkage": "^1.2.1",
