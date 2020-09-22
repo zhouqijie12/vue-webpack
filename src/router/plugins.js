@@ -7,6 +7,7 @@ export default {
             return val.toUpperCase()
         }
         Vue.prototype.num = 10
+        Vue.prototype.$opt = options;
         Vue.prototype.$eventBus = new Vue()
 
 

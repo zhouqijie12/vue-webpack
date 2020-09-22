@@ -1,7 +1,7 @@
 <template>
     <div class="c">
         【动态组件2】
-        <slot name="aaa"></slot>
+        <slot name="aaa">aaaaaafdfdsa</slot>
     </div>
 </template>
 

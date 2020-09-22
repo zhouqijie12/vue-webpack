@@ -13,6 +13,10 @@ import work from '@/components/views/work'
 import speak from '@/components/views/speak'
 import slide from '@/components/views/slide'
 import iview from '@/components/iview'
+import render from '@/components/render'
+
+
+
 
 Vue.use(VueRouter)
 
@@ -129,6 +133,14 @@ let router = new VueRouter({
             component: elementui,
             meta: {
                 index: 5
+            }
+        },
+        {
+            path: '/render',
+            name: 'render',
+            component: render,
+            meta: {
+                index: 6
             }
         },
         {
